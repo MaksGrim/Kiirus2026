@@ -736,12 +736,186 @@
   .lbl-cont { color: #7dd3fc; }
 
 
+
+  .app-tab.weight-tab.active {
+    color: #a78bfa;
+    border-color: #a78bfa;
+    box-shadow: 0 -2px 10px rgba(167, 139, 250, 0.16);
+  }
+  #weightView {
+    display: none;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 14px 60px;
+  }
+  .w-sticky-head {
+    position: sticky;
+    top: 0;
+    z-index: 45;
+    background: rgba(11, 17, 32, 0.97);
+    backdrop-filter: blur(8px);
+    padding: 12px 0 10px;
+    border-bottom: 1px solid var(--card-border);
+    margin-bottom: 12px;
+  }
+  .w-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .w-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: #a78bfa;
+  }
+  .w-sub {
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .w-loco-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .w-chip {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    color: var(--text);
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .w-chip.active {
+    background: #8b5cf6;
+    border-color: #8b5cf6;
+    color: #fff;
+  }
+  .w-card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-left: 4px solid #8b5cf6;
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 12px;
+  }
+  .w-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .w-seg-name {
+    font-size: 16px;
+    font-weight: 800;
+    color: #fff;
+  }
+  .w-seg-sub {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .w-dir-pill {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #c4b5fd;
+    background: rgba(139, 92, 246, 0.16);
+    padding: 2px 7px;
+    border-radius: 5px;
+  }
+  .w-len-badge {
+    font-size: 12px;
+    font-weight: 700;
+    background: rgba(255,255,255,0.08);
+    padding: 4px 8px;
+    border-radius: 7px;
+    white-space: nowrap;
+    color: #c4b5fd;
+    text-align: right;
+  }
+  .w-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  @media (max-width: 520px) {
+    .w-grid { grid-template-columns: 1fr; }
+  }
+  .w-loco-box {
+    background: rgba(11, 17, 32, 0.65);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
+    padding: 9px 10px;
+  }
+  .w-loco-box.focus {
+    border-color: rgba(167, 139, 250, 0.55);
+    background: rgba(139, 92, 246, 0.1);
+  }
+  .w-loco-name {
+    font-size: 12px;
+    font-weight: 800;
+    color: #c4b5fd;
+    margin-bottom: 6px;
+  }
+  .w-pair {
+    display: flex;
+    gap: 6px;
+  }
+  .w-cell {
+    flex: 1;
+    background: rgba(0,0,0,0.32);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 7px;
+    padding: 4px 6px;
+  }
+  .w-cell-lbl {
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .w-cell-val {
+    font-size: 15px;
+    font-weight: 800;
+    color: #fff;
+    margin-top: 1px;
+  }
+  .w-note {
+    margin-top: 9px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: rgba(251, 191, 36, 0.11);
+    border-left: 3px solid var(--warn);
+    font-size: 12.5px;
+    color: #fde68a;
+  }
+  .w-rules-box {
+    margin-top: 14px;
+    padding: 13px 14px;
+    background: rgba(248, 113, 113, 0.08);
+    border: 1px solid rgba(248, 113, 113, 0.32);
+    border-radius: 12px;
+    font-size: 12.5px;
+    color: #fecaca;
+    line-height: 1.5;
+  }
+  .w-rules-box b { color: #fca5a5; }
+
 </style>
 </head>
 <body>
 
 <div class="app-nav">
   <button class="app-tab active" id="tabKiirusBtn" onclick="switchAppTab('kiirus')">🚄 Скорости (EVR / EDEL)</button>
+  <button class="app-tab weight-tab" id="tabWeightBtn" onclick="switchAppTab('weight')">⚖️ Весовые нормы</button>
   <button class="app-tab tem-tab" id="tabTemBtn" onclick="switchAppTab('tem')">🚂 TEM TMH</button>
   <button class="app-tab c30m-tab" id="tabC30mBtn" onclick="switchAppTab('c30m')">🚆 C30M</button>
 </div>
@@ -838,6 +1012,38 @@
 
   <div style="font-size:12px;color:var(--muted);margin-bottom:10px;" id="c30mCountLine"></div>
   <div id="c30mResults"></div>
+</div>
+
+
+<div id="weightView">
+  <div class="w-sticky-head">
+    <div class="w-title-row">
+      <div>
+        <div class="w-title">Весовые нормы поездов</div>
+        <div class="w-sub">Lisa 1–17 • C36-7i • DF7G-E, C30-M • TEM TMH • Усл. длина</div>
+      </div>
+    </div>
+
+    <div class="search-wrap">
+      <input type="text" id="wSearchInput" class="search-input" placeholder="Станция, перегон или участок (Tamsalu, Tapa - Tartu, Narva, Põlva)..." autocomplete="off" oninput="onWeightInput()">
+      <button class="clear-btn" id="wClearBtn" onclick="clearWeightSearch()">×</button>
+      <div class="dropdown" id="wDropdown"></div>
+    </div>
+
+    <div class="w-loco-bar" id="wLocoChips">
+      <button class="w-chip active" onclick="setWeightLoco('ALL', this)">Все локомотивы</button>
+      <button class="w-chip" onclick="setWeightLoco('TEM', this)">TEM TMH</button>
+      <button class="w-chip" onclick="setWeightLoco('C30', this)">DF7G-E / C30-M</button>
+      <button class="w-chip" onclick="setWeightLoco('C36', this)">C36-7i</button>
+    </div>
+  </div>
+
+  <div class="recent-box">
+    <div class="section-label">Быстрый выбор участка / станции</div>
+    <div class="chips" id="wRecentChips"></div>
+  </div>
+
+  <div id="wContentArea"></div>
 </div>
 
 <script>
@@ -3679,14 +3885,23 @@ let diagCategory = "ALL";
 
 function switchAppTab(tab) {
   document.getElementById("kiirusView").style.display = (tab === "kiirus") ? "block" : "none";
+  document.getElementById("weightView").style.display = (tab === "weight") ? "block" : "none";
   document.getElementById("temView").style.display = (tab === "tem") ? "block" : "none";
   document.getElementById("c30mView").style.display = (tab === "c30m") ? "block" : "none";
 
   document.getElementById("tabKiirusBtn").classList.toggle("active", tab === "kiirus");
+  document.getElementById("tabWeightBtn").classList.toggle("active", tab === "weight");
   document.getElementById("tabTemBtn").classList.toggle("active", tab === "tem");
   document.getElementById("tabC30mBtn").classList.toggle("active", tab === "c30m");
 
-  if (tab === "tem") {
+  if (tab === "weight") {
+    renderWeightRecent();
+    renderWeightView();
+    setTimeout(() => {
+      const inp = document.getElementById("wSearchInput");
+      if (inp) inp.focus();
+    }, 50);
+  } else if (tab === "tem") {
     renderDiagList();
     setTimeout(() => {
       const inp = document.getElementById("diagSearchInput");
@@ -7288,6 +7503,244 @@ function renderC30mList() {
 }
 
 renderC30mList();
+
+
+// === ВЕСОВЫЕ НОРМЫ ПОЕЗДОВ (AS OPERAIL 2023, LISA 1–17) ===
+const WEIGHT_DB = [{"dir": "TALLINN – TAPA", "lisa": "Lisa 1", "from": "TALLINN", "from_km": "104.4", "to": "Pöörang 7a", "to_km": "106.0", "dist": "1.6", "len": 57, "c36_stop": "3800", "c36_pass": "3800", "c30_stop": "2500", "c30_pass": "2500", "tem_stop": "2200", "tem_pass": "2200", "notes": []}, {"dir": "TALLINN – TAPA", "lisa": "Lisa 1", "from": "Pöörang 7a", "from_km": "106.0", "to": "ÜLEMISTE", "to_km": "112.4", "dist": "6.4", "len": 57, "c36_stop": "3800", "c36_pass": "3800", "c30_stop": "2500", "c30_pass": "2500", "tem_stop": "2200", "tem_pass": "2200", "notes": []}, {"dir": "TALLINN – TAPA", "lisa": "Lisa 1", "from": "ÜLEMISTE", "from_km": "112.4", "to": "LAGEDI", "to_km": "119.5", "dist": "7.1", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "TALLINN – TAPA", "lisa": "Lisa 1", "from": "LAGEDI", "from_km": "119.5", "to": "RAASIKU", "to_km": "134.0", "dist": "14.5", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "TALLINN – TAPA", "lisa": "Lisa 1", "from": "RAASIKU", "from_km": "134.0", "to": "KEHRA", "to_km": "143.3", "dist": "9.3", "len": 57, "c36_stop": "5000", "c36_pass": "6000 (*1)/5000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": ["(*1) - При проследовании RAASIKU, с км 132 п. 5 до км 136 п. 9 ограничение скорости не менее 40 км/ч."]}, {"dir": "TALLINN – TAPA", "lisa": "Lisa 1", "from": "KEHRA", "from_km": "143.3", "to": "AEGVIIDU", "to_km": "161.1", "dist": "17.8", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "TALLINN – TAPA", "lisa": "Lisa 1", "from": "AEGVIIDU", "from_km": "161.1", "to": "TAPA", "to_km": "182.0", "dist": "8.1", "len": 57, "c36_stop": "5000", "c36_pass": "6000 (*2)/5000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": ["(*2) - с км 162 п. 5 до км 172 п. 8 ограничение скорости не менее 40 км/ч."]}, {"dir": "TAPA – TALLINN", "lisa": "Lisa 2", "from": "TAPA", "from_km": "182.0", "to": "AEGVIIDU", "to_km": "161.1", "dist": "20.9", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "TAPA – TALLINN", "lisa": "Lisa 2", "from": "AEGVIIDU", "from_km": "161.1", "to": "KEHRA", "to_km": "143.3", "dist": "17.8", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "TAPA – TALLINN", "lisa": "Lisa 2", "from": "KEHRA", "from_km": "143.3", "to": "RAASIKU", "to_km": "134.0", "dist": "9.3", "len": 57, "c36_stop": "5000", "c36_pass": "6000 (*1)/5000", "c30_stop": "3500", "c30_pass": "4000 (*1)/3500", "tem_stop": "3000", "tem_pass": "4000 (*1)/3000", "notes": ["(*1) - При проследовании по главному пути KEHRA, с км 145 п. 2 до км 142 п. 7 ограничение скорости не менее 40 км/ч."]}, {"dir": "TAPA – TALLINN", "lisa": "Lisa 2", "from": "RAASIKU", "from_km": "134.0", "to": "LAGEDI", "to_km": "119.5", "dist": "14.5", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "TAPA – TALLINN", "lisa": "Lisa 2", "from": "LAGEDI", "from_km": "119.5", "to": "ÜLEMISTE", "to_km": "112.4", "dist": "7.1", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "TAPA – TALLINN", "lisa": "Lisa 2", "from": "ÜLEMISTE", "from_km": "112.4", "to": "Pöörang 7A", "to_km": "106.0", "dist": "6.4", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "TAPA – TALLINN", "lisa": "Lisa 2", "from": "Pöörang 7A", "from_km": "106.0", "to": "TALLINN", "to_km": "104.4", "dist": "1.6", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "MUUGA – LAGEDI", "lisa": "Lisa 3", "from": "MUUGA", "from_km": "14", "to": "MAARDU", "to_km": "7", "dist": "7", "len": 57, "c36_stop": "3800", "c36_pass": "3800", "c30_stop": "2500", "c30_pass": "2500", "tem_stop": "2200", "tem_pass": "2200", "notes": []}, {"dir": "MUUGA – LAGEDI", "lisa": "Lisa 3", "from": "MAARDU", "from_km": "7", "to": "4 km pöörang", "to_km": "3.6", "dist": "3.7", "len": 57, "c36_stop": "4000", "c36_pass": "3800", "c30_stop": "3000", "c30_pass": "3000", "tem_stop": "2500", "tem_pass": "2500", "notes": []}, {"dir": "MUUGA – LAGEDI", "lisa": "Lisa 3", "from": "4 km pöörang", "from_km": "3.6", "to": "LAGEDI", "to_km": "0", "dist": "3.6", "len": 57, "c36_stop": "4000", "c36_pass": "4000", "c30_stop": "3000", "c30_pass": "3000", "tem_stop": "2500", "tem_pass": "2500", "notes": []}, {"dir": "LAGEDI – MUUGA", "lisa": "Lisa 3", "from": "LAGEDI", "from_km": "0", "to": "4 km pöörang", "to_km": "3.6", "dist": "3.6", "len": 57, "c36_stop": "5500 (*1)/4000", "c36_pass": "5500 (*1)/4000", "c30_stop": "3000 (*1)/2500", "c30_pass": "3000 (*1)/2500", "tem_stop": "2700 (*1)/2200", "tem_pass": "2700 (*1)/2200", "notes": ["(*1) - с км 3 п. 2 до км 6 п. 6 ограничение скорости не менее 50 км/ч."]}, {"dir": "LAGEDI – MUUGA", "lisa": "Lisa 3", "from": "4 km pöörang", "from_km": "3.6", "to": "MAARDU", "to_km": "7", "dist": "3.7", "len": 57, "c36_stop": "5500 (*1)/4000", "c36_pass": "5500 (*1)/4000", "c30_stop": "3000 (*1)/2500", "c30_pass": "3000 (*1)/2500", "tem_stop": "2600 (*1)/2200", "tem_pass": "2600 (*1)/2200", "notes": ["(*1) - с км 3 п. 2 до км 6 п. 6 ограничение скорости не менее 50 км/ч."]}, {"dir": "LAGEDI – MUUGA", "lisa": "Lisa 3", "from": "MAARDU", "from_km": "7", "to": "MUUGA", "to_km": "14", "dist": "7", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "4 km pöörang – ÜLEMISTE", "lisa": "Lisa 3", "from": "4 km pöörang", "from_km": "3.6", "to": "ÜLEMISTE", "to_km": "112", "dist": "4.4", "len": 57, "c36_stop": "3700", "c36_pass": "3700", "c30_stop": "3000", "c30_pass": "3000", "tem_stop": "2500", "tem_pass": "2500", "notes": []}, {"dir": "ÜLEMISTE – 4 km pöörang", "lisa": "Lisa 3", "from": "ÜLEMISTE", "from_km": "112", "to": "4 km pöörang", "to_km": "3.6", "dist": "4.4", "len": 57, "c36_stop": "4000", "c36_pass": "4000", "c30_stop": "2500", "c30_pass": "2500", "tem_stop": "2200", "tem_pass": "2200", "notes": []}, {"dir": "TAPA – TARTU", "lisa": "Lisa 4", "from": "TAPA", "from_km": "315", "to": "NÕMMKÜLA", "to_km": "324.0", "dist": "9.0", "len": 57, "c36_stop": "5000", "c36_pass": "5000", "c30_stop": "3500", "c30_pass": "3500", "tem_stop": "3200", "tem_pass": "3200", "notes": []}, {"dir": "TAPA – TARTU", "lisa": "Lisa 4", "from": "NÕMMKÜLA", "from_km": "324.0", "to": "TAMSALU", "to_km": "329.9", "dist": "5.9", "len": 57, "c36_stop": "5500 (*1)/4500", "c36_pass": "5500 (*1)/4500", "c30_stop": "4000 (*1)/2800", "c30_pass": "4000 (*1)/2800", "tem_stop": "4000 (*1)/2800", "tem_pass": "4000 (*1)/2800", "notes": ["(*1) - с км 326 п. 2 до км 329 п. 8 ограничение скорости не менее 40 км/ч."]}, {"dir": "TAPA – TARTU", "lisa": "Lisa 4", "from": "TAMSALU", "from_km": "329.9", "to": "KILTSI", "to_km": "339.2", "dist": "9.3", "len": 57, "c36_stop": "5500", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "TAPA – TARTU", "lisa": "Lisa 4", "from": "KILTSI", "from_km": "339.2", "to": "RAKKE", "to_km": "351.1", "dist": "11.9", "len": 57, "c36_stop": "6000 (*2)/5000", "c36_pass": "6000 (*2)/5000", "c30_stop": "4000 (*2)/2800", "c30_pass": "4000 (*2)/2800", "tem_stop": "4000 (*2)/2800", "tem_pass": "4000 (*2)/2800", "notes": ["(*2) - с км 344 п. 5 до км 348 п. 7 ограничение скорости не менее 40 км/ч."]}, {"dir": "TAPA – TARTU", "lisa": "Lisa 4", "from": "RAKKE", "from_km": "351.1", "to": "VÄGEVA", "to_km": "360.4", "dist": "9.3", "len": 57, "c36_stop": "6000 (*3)/5000", "c36_pass": "6000 (*3)/5000", "c30_stop": "4000 (*3)/2800", "c30_pass": "4000 (*3)/2800", "tem_stop": "4000 (*3)/2800", "tem_pass": "4000 (*3)/2800", "notes": ["(*3) - с км 353 п. 5 до км 356 п. 3 ограничение скорости не менее 40 км/ч."]}, {"dir": "TAPA – TARTU", "lisa": "Lisa 4", "from": "VÄGEVA", "from_km": "360.4", "to": "PEDJA", "to_km": "370.4", "dist": "10", "len": 57, "c36_stop": "5500", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "TAPA – TARTU", "lisa": "Lisa 4", "from": "PEDJA", "from_km": "370.4", "to": "JÕGEVA", "to_km": "380.1", "dist": "9.7", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "TAPA – TARTU", "lisa": "Lisa 4", "from": "JÕGEVA", "from_km": "380.1", "to": "KAAREPERE", "to_km": "392.0", "dist": "11.9", "len": 57, "c36_stop": "5000 (*4)/4200", "c36_pass": "5500 (*4)/4200", "c30_stop": "3500 (*4)/2800", "c30_pass": "4000 (*4)/2800", "tem_stop": "3200 (*4)/2800", "tem_pass": "4000 (*4)/2800", "notes": ["(*4) - с км 382 п. 5 до км 387 п. 2 ограничение скорости не менее 50 км/ч."]}, {"dir": "TAPA – TARTU", "lisa": "Lisa 4", "from": "KAAREPERE", "from_km": "392.0", "to": "TABIVERE", "to_km": "405.8", "dist": "13.8", "len": 57, "c36_stop": "6000 (*5)/5000", "c36_pass": "6000 (*5)/5000", "c30_stop": "4000 (*5)/3200", "c30_pass": "4000 (*5)/3200", "tem_stop": "4000 (*5)/2800", "tem_pass": "4000 (*5)/2800", "notes": ["(*5) - с км 397 п. 2 до км 401 п. 5 ограничение скорости не менее 40 км/ч."]}, {"dir": "TAPA – TARTU", "lisa": "Lisa 4", "from": "TABIVERE", "from_km": "405.8", "to": "KÄRKNA", "to_km": "416.3", "dist": "10.5", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "TAPA – TARTU", "lisa": "Lisa 4", "from": "KÄRKNA", "from_km": "416.3", "to": "TARTU", "to_km": "427.5", "dist": "11.2", "len": 57, "c36_stop": "5000", "c36_pass": "5000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "TARTU – TAPA", "lisa": "Lisa 5", "from": "TARTU", "from_km": "427.5", "to": "KÄRKNA", "to_km": "416.3", "dist": "11.2", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "TARTU – TAPA", "lisa": "Lisa 5", "from": "KÄRKNA", "from_km": "416.3", "to": "TABIVERE", "to_km": "405.8", "dist": "10.5", "len": 57, "c36_stop": "5000", "c36_pass": "5500 (*1)/5000", "c30_stop": "3200", "c30_pass": "4000 (*1)/2800", "tem_stop": "2800", "tem_pass": "4000 (*1)/2800", "notes": ["(*1) - km. 419 p. 5 kuni km. 415 p. 2 ja km. 409 p. 5 kuni km. 406 p. 5 kiirusepiirang mitte alla 40 km/t."]}, {"dir": "TARTU – TAPA", "lisa": "Lisa 5", "from": "TABIVERE", "from_km": "405.8", "to": "KAAREPERE", "to_km": "392.0", "dist": "13.8", "len": 57, "c36_stop": "5500", "c36_pass": "5500 (*2)/5000", "c30_stop": "3500 (*2)/2800", "c30_pass": "4000 (*2)/2800", "tem_stop": "3200 (*2)/2800", "tem_pass": "3200 (*2)/2800", "notes": ["(*2) - km. 403 p. 5 kuni km. 393 p. 3 kiirusepiirang mitte alla 50 km/t."]}, {"dir": "TARTU – TAPA", "lisa": "Lisa 5", "from": "KAAREPERE", "from_km": "392.0", "to": "JÕGEVA", "to_km": "380.1", "dist": "11.9", "len": 57, "c36_stop": "5500", "c36_pass": "6000 (*3)/5500", "c30_stop": "4000", "c30_pass": "4000 (*3)/2800", "tem_stop": "4000", "tem_pass": "4000 (*3)/2800", "notes": ["(*3) - с км 390 п. 8 до км 388 п. 3 ограничение скорости не менее 40 км/ч."]}, {"dir": "TARTU – TAPA", "lisa": "Lisa 5", "from": "JÕGEVA", "from_km": "380.1", "to": "PEDJA", "to_km": "370.4", "dist": "9.7", "len": 57, "c36_stop": "6000 (*4)/5000", "c36_pass": "6000 (*4)/5000", "c30_stop": "3500 (*4)/2800", "c30_pass": "3500 (*4)/2800", "tem_stop": "3200 (*4)/2800", "tem_pass": "3200 (*4)/2800", "notes": ["(*4) - с км 377 п. 5 до км 371 п. 5 ограничение скорости не менее 60 км/ч, приём на PEDJA на главный путь."]}, {"dir": "TARTU – TAPA", "lisa": "Lisa 5", "from": "PEDJA", "from_km": "370.4", "to": "VÄGEVA", "to_km": "360.4", "dist": "10.0", "len": 57, "c36_stop": "5500", "c36_pass": "6000 (*5)/5500", "c30_stop": "4000 (*5)/2800", "c30_pass": "4000 (*5)/2800", "tem_stop": "4000 (*5)/2800", "tem_pass": "4000 (*5)/2800", "notes": ["(*5) - с км 367 п. 5 до км 363 п. 2 ограничение скорости не менее 40 км/ч."]}, {"dir": "TARTU – TAPA", "lisa": "Lisa 5", "from": "VÄGEVA", "from_km": "360.4", "to": "RAKKE", "to_km": "351.1", "dist": "9.3", "len": 57, "c36_stop": "6000 (*6)/5000", "c36_pass": "6000 (*6)/5000", "c30_stop": "4000 (*6)/2800", "c30_pass": "4000 (*6)/2800", "tem_stop": "4000 (*6)/2800", "tem_pass": "4000 (*6)/2800", "notes": ["(*6) - с км 360 п. 5 до км 352 п. 2 ограничение скорости не менее 40 км/ч."]}, {"dir": "TARTU – TAPA", "lisa": "Lisa 5", "from": "RAKKE", "from_km": "351.1", "to": "KILTSI", "to_km": "339.2", "dist": "11.9", "len": 57, "c36_stop": "5500 (*7)/5000", "c36_pass": "6000 (*7)/5000", "c30_stop": "4000 (*7)/2800", "c30_pass": "4000 (*7)/2800", "tem_stop": "4000 (*7)/2800", "tem_pass": "4000 (*7)/2800", "notes": ["(*7) - с км 352 п. 1 до км 348 п. 2 ограничение скорости не менее 40 км/ч."]}, {"dir": "TARTU – TAPA", "lisa": "Lisa 5", "from": "KILTSI", "from_km": "339.2", "to": "TAMSALU", "to_km": "329.9", "dist": "9.3", "len": 57, "c36_stop": "5500 (*8)", "c36_pass": "5500 (*8)", "c30_stop": "4000 (*8)", "c30_pass": "4000 (*8)", "tem_stop": "3500 (*8)", "tem_pass": "3500 (*8)", "notes": ["(*8) - Остановка на KILTSI нежелательна, так как влечёт большой дополнительный расход топлива."]}, {"dir": "TARTU – TAPA", "lisa": "Lisa 5", "from": "TAMSALU", "from_km": "329.9", "to": "NÕMMKÜLA", "to_km": "324.0", "dist": "5.9", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "TARTU – TAPA", "lisa": "Lisa 5", "from": "NÕMMKÜLA", "from_km": "324.0", "to": "TAPA", "to_km": "315.0", "dist": "9.0", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "TARTU – VALGA", "lisa": "Lisa 6", "from": "TARTU", "from_km": "427.5", "to": "ROPKA", "to_km": "436.5", "dist": "9.0", "len": 57, "c36_stop": "5500 (*1)/5000", "c36_pass": "5500 (*1)/5000", "c30_stop": "4000 (*1)/2800", "c30_pass": "4000 (*1)/2800", "tem_stop": "4000 (*1)/2800", "tem_pass": "4000 (*1)/2800", "notes": ["(*1) - с км 434 п. 2 до км 437 п. 2 ограничение скорости не менее 40 км/ч."]}, {"dir": "TARTU – VALGA", "lisa": "Lisa 6", "from": "ROPKA", "from_km": "436.5", "to": "NÕO", "to_km": "442.8", "dist": "6.3", "len": 57, "c36_stop": "5500 (*2)/4500", "c36_pass": "5500 (*2)/4500", "c30_stop": "4000 (*2)/2800", "c30_pass": "4000 (*2)/2800", "tem_stop": "4000 (*2)/2800", "tem_pass": "4000 (*2)/2800", "notes": ["(*2) - с км 438 п. 5 до км 441 п. 8 ограничение скорости не менее 40 км/ч."]}, {"dir": "TARTU – VALGA", "lisa": "Lisa 6", "from": "NÕO", "from_km": "442.8", "to": "ELVA", "to_km": "452.7", "dist": "9.9", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "TARTU – VALGA", "lisa": "Lisa 6", "from": "ELVA", "from_km": "452.7", "to": "PALUPERA", "to_km": "464.9", "dist": "12.2", "len": 57, "c36_stop": "3800", "c36_pass": "3800", "c30_stop": "2800", "c30_pass": "2800", "tem_stop": "2500", "tem_pass": "2500", "notes": []}, {"dir": "TARTU – VALGA", "lisa": "Lisa 6", "from": "PALUPERA", "from_km": "464.9", "to": "PUKA", "to_km": "474.8", "dist": "9.9", "len": 57, "c36_stop": "3800", "c36_pass": "3800", "c30_stop": "2800", "c30_pass": "2800", "tem_stop": "2500", "tem_pass": "2500", "notes": []}, {"dir": "TARTU – VALGA", "lisa": "Lisa 6", "from": "PUKA", "from_km": "474.8", "to": "KEENI", "to_km": "487.0", "dist": "12.2", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "TARTU – VALGA", "lisa": "Lisa 6", "from": "KEENI", "from_km": "487.0", "to": "SANGASTE", "to_km": "496.8", "dist": "9.8", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "TARTU – VALGA", "lisa": "Lisa 6", "from": "SANGASTE", "from_km": "496.8", "to": "VALGA", "to_km": "510.4", "dist": "13.6", "len": 57, "c36_stop": "4500", "c36_pass": "4500", "c30_stop": "2800", "c30_pass": "2800", "tem_stop": "2500", "tem_pass": "2500", "notes": []}, {"dir": "VALGA – TARTU", "lisa": "Lisa 7", "from": "VALGA", "from_km": "510.4", "to": "SANGASTE", "to_km": "496.8", "dist": "13.6", "len": 57, "c36_stop": "6000 (*1)/4500", "c36_pass": "6000 (*1)/4500", "c30_stop": "4000 (*1)/2800", "c30_pass": "4000 (*1)/2800", "tem_stop": "4000 (*1)/2800", "tem_pass": "4000 (*1)/2800", "notes": ["(*1) - с км 507 п. 5 до км 500 п. 5 ограничение скорости не менее 50 км/ч."]}, {"dir": "VALGA – TARTU", "lisa": "Lisa 7", "from": "SANGASTE", "from_km": "496.8", "to": "KEENI", "to_km": "487.0", "dist": "9.8", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "VALGA – TARTU", "lisa": "Lisa 7", "from": "KEENI", "from_km": "487.0", "to": "PUKA", "to_km": "474.8", "dist": "12.2", "len": 57, "c36_stop": "3800", "c36_pass": "3800", "c30_stop": "2800", "c30_pass": "2800", "tem_stop": "2800", "tem_pass": "2800", "notes": []}, {"dir": "VALGA – TARTU", "lisa": "Lisa 7", "from": "PUKA", "from_km": "474.8", "to": "PALUPERA", "to_km": "464.9", "dist": "9.9", "len": 57, "c36_stop": "—", "c36_pass": "6000 (*2)/4500", "c30_stop": "—", "c30_pass": "4000 (*2)/2800", "tem_stop": "—", "tem_pass": "4000 (*2)/2800", "notes": ["(*2) - с км 468 п. 5 до км 466 п. 2 ограничение скорости не менее 40 км/ч. Приём на PALUPERA на главный путь."]}, {"dir": "VALGA – TARTU", "lisa": "Lisa 7", "from": "PALUPERA", "from_km": "464.9", "to": "ELVA", "to_km": "452.7", "dist": "12.2", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "VALGA – TARTU", "lisa": "Lisa 7", "from": "ELVA", "from_km": "452.7", "to": "NÕO", "to_km": "442.8", "dist": "9.9", "len": 57, "c36_stop": "5000 (*3)/4200", "c36_pass": "5500 (*3)/4200", "c30_stop": "3500 (*3)/2800", "c30_pass": "4000 (*3)/2800", "tem_stop": "3500 (*3)/2800", "tem_pass": "3500 (*3)/2800", "notes": ["(*3) - На перегоне ELVA – NÕO ограничение скорости не менее 50 км/ч. Приём на NÕO на главный путь."]}, {"dir": "VALGA – TARTU", "lisa": "Lisa 7", "from": "NÕO", "from_km": "442.8", "to": "ROPKA", "to_km": "436.5", "dist": "6.3", "len": 57, "c36_stop": "5000 (*4)/4200", "c36_pass": "5500 (*4)/4200", "c30_stop": "4000 (*4)/2800", "c30_pass": "4000 (*4)/2800", "tem_stop": "4000 (*4)/2800", "tem_pass": "4000 (*4)/2800", "notes": ["(*4) - От станции NÕO до км 441 п. 4 ограничение скорости не менее 40 км/ч."]}, {"dir": "VALGA – TARTU", "lisa": "Lisa 7", "from": "ROPKA", "from_km": "436.5", "to": "TARTU", "to_km": "427.5", "dist": "9.0", "len": 57, "c36_stop": "5500 (*5)/5000", "c36_pass": "5500 (*5)/5000", "c30_stop": "4000 (*5)/2800", "c30_pass": "4000 (*5)/2800", "tem_stop": "4000 (*5)/2800", "tem_pass": "4000 (*5)/2800", "notes": ["(*5) - с км 436 п. 6 до км 433 п. 6 ограничение скорости не менее 40 км/ч."]}, {"dir": "TAPA – NARVA", "lisa": "Lisa 8", "from": "TAPA", "from_km": "182.0", "to": "KADRINA", "to_km": "195.7", "dist": "13.7", "len": 57, "c36_stop": "5300 (*1)/4200", "c36_pass": "5300 (*1)/4200", "c30_stop": "4000 (*1)/2800", "c30_pass": "4000 (*1)/2800", "tem_stop": "4000 (*1)/2800", "tem_pass": "4000 (*1)/2800", "notes": ["(*1) - Отправление поезда по главному пути IA. От переезда TAPA до км 185 п. 8 ограничение скорости не менее 60 км/ч, до км 187 п. 5 не менее 40 км/ч."]}, {"dir": "TAPA – NARVA", "lisa": "Lisa 8", "from": "KADRINA", "from_km": "195.7", "to": "RAKVERE", "to_km": "208.3", "dist": "12.6", "len": 57, "c36_stop": "5300", "c36_pass": "6000", "c30_stop": "3200", "c30_pass": "4000", "tem_stop": "2800", "tem_pass": "4000", "notes": []}, {"dir": "TAPA – NARVA", "lisa": "Lisa 8", "from": "RAKVERE", "from_km": "208.3", "to": "VAEKÜLA", "to_km": "217.7", "dist": "9.4", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "TAPA – NARVA", "lisa": "Lisa 8", "from": "VAEKÜLA", "from_km": "217.7", "to": "KABALA", "to_km": "226.2", "dist": "8.5", "len": 57, "c36_stop": "5300 (*2)/4200", "c36_pass": "5300 (*2)/4200", "c30_stop": "4000 (*2)/2800", "c30_pass": "4000 (*2)/2800", "tem_stop": "4000 (*2)/2800", "tem_pass": "4000 (*2)/2800", "notes": ["(*2) - с км 222 п. 6 до км 225 п. 8 ограничение скорости не менее 50 км/ч."]}, {"dir": "TAPA – NARVA", "lisa": "Lisa 8", "from": "KABALA", "from_km": "226.2", "to": "SONDA", "to_km": "235.9", "dist": "9.7", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "TAPA – NARVA", "lisa": "Lisa 8", "from": "SONDA", "from_km": "235.9", "to": "KIVIÕLI", "to_km": "242.4", "dist": "6.5", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "TAPA – NARVA", "lisa": "Lisa 8", "from": "KIVIÕLI", "from_km": "242.4", "to": "PÜSSI", "to_km": "248.0", "dist": "5.6", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "TAPA – NARVA", "lisa": "Lisa 8", "from": "PÜSSI", "from_km": "248.0", "to": "KOHTLA", "to_km": "257.3", "dist": "9.3", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "TAPA – NARVA", "lisa": "Lisa 8", "from": "KOHTLA", "from_km": "257.3", "to": "JÕHVI", "to_km": "268.0", "dist": "10.7", "len": 57, "c36_stop": "4500", "c36_pass": "5300 (*3)/4500", "c30_stop": "4000 (*3)/2800", "c30_pass": "4000 (*3)/2800", "tem_stop": "3600 (*3)/2800", "tem_pass": "3600 (*3)/2800", "notes": ["(*3) - с км 258 п. 8 до км 264 п. 8 ограничение скорости не менее 40 км/ч."]}, {"dir": "TAPA – NARVA", "lisa": "Lisa 8", "from": "JÕHVI", "from_km": "268.0", "to": "ORU", "to_km": "278.5", "dist": "10.5", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "TAPA – NARVA", "lisa": "Lisa 8", "from": "ORU", "from_km": "278.5", "to": "VAIVARA", "to_km": "289.2", "dist": "10.7", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "TAPA – NARVA", "lisa": "Lisa 8", "from": "VAIVARA", "from_km": "289.2", "to": "AUVERE", "to_km": "298.3", "dist": "9.1", "len": 57, "c36_stop": "4500", "c36_pass": "5300 (*4)/4500", "c30_stop": "4000 (*4)/2800", "c30_pass": "4000 (*4)/2800", "tem_stop": "3600 (*4)/2800", "tem_pass": "3600 (*4)/2800", "notes": ["(*4) - с км 291 п. 4 до км 295 п. 1 ограничение скорости не менее 40 км/ч."]}, {"dir": "TAPA – NARVA", "lisa": "Lisa 8", "from": "AUVERE", "from_km": "298.3", "to": "SOLDINA", "to_km": "306.0", "dist": "7.7", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "TAPA – NARVA", "lisa": "Lisa 8", "from": "SOLDINA", "from_km": "306.0", "to": "NARVA", "to_km": "314.0", "dist": "8.0", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "NARVA – TAPA", "lisa": "Lisa 9", "from": "NARVA", "from_km": "314.0", "to": "SOLDINA", "to_km": "306.0", "dist": "8.0", "len": 57, "c36_stop": "6500", "c36_pass": "6500", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "NARVA – TAPA", "lisa": "Lisa 9", "from": "SOLDINA", "from_km": "306.0", "to": "AUVERE", "to_km": "298.3", "dist": "7.7", "len": 57, "c36_stop": "6000", "c36_pass": "6500", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "NARVA – TAPA", "lisa": "Lisa 9", "from": "AUVERE", "from_km": "298.3", "to": "VAIVARA", "to_km": "289.2", "dist": "9.1", "len": 57, "c36_stop": "5000", "c36_pass": "6500 (*1)/5000", "c30_stop": "4000 (*1)/2800", "c30_pass": "4000 (*1)/2800", "tem_stop": "3600 (*1)/2800", "tem_pass": "4000 (*1)/2800", "notes": ["(*1) - Станцию AUVERE проследовать по главному пути без остановки, с км 300 до км 294 п. 4 ограничение скорости не менее 40 км/ч."]}, {"dir": "NARVA – TAPA", "lisa": "Lisa 9", "from": "VAIVARA", "from_km": "289.2", "to": "ORU", "to_km": "278.5", "dist": "10.7", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "NARVA – TAPA", "lisa": "Lisa 9", "from": "ORU", "from_km": "278.5", "to": "JÕHVI", "to_km": "268.0", "dist": "10.5", "len": 57, "c36_stop": "5000 (*2)/4200", "c36_pass": "5500 (*2)/4200", "c30_stop": "3500 (*2)/2800", "c30_pass": "3500 (*2)/2800", "tem_stop": "3200 (*2)/2800", "tem_pass": "3200 (*2)/2800", "notes": ["(*2) - с км 279 п. 0 до км 270 п. 8 ограничение скорости не менее 60 км/ч, с км 270 п. 7 до км 266 п. 4 не менее 40 км/ч."]}, {"dir": "NARVA – TAPA", "lisa": "Lisa 9", "from": "JÕHVI", "from_km": "268.0", "to": "KOHTLA", "to_km": "257.3", "dist": "10.7", "len": 57, "c36_stop": "4200", "c36_pass": "5500 (*2)/4200", "c30_stop": "3000 (*2)/2800", "c30_pass": "3000 (*2)/2800", "tem_stop": "2500", "tem_pass": "2800", "notes": ["(*2) - с км 279 п. 0 до км 270 п. 8 ограничение скорости не менее 60 км/ч, с км 270 п. 7 до км 266 п. 4 не менее 40 км/ч."]}, {"dir": "NARVA – TAPA", "lisa": "Lisa 9", "from": "KOHTLA", "from_km": "257.3", "to": "PÜSSI", "to_km": "248.0", "dist": "9.3", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "NARVA – TAPA", "lisa": "Lisa 9", "from": "PÜSSI", "from_km": "248.0", "to": "KIVIÕLI", "to_km": "242.4", "dist": "5.6", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "NARVA – TAPA", "lisa": "Lisa 9", "from": "KIVIÕLI", "from_km": "242.4", "to": "SONDA", "to_km": "235.9", "dist": "6.5", "len": 57, "c36_stop": "5500", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "NARVA – TAPA", "lisa": "Lisa 9", "from": "SONDA", "from_km": "235.9", "to": "KABALA", "to_km": "226.2", "dist": "9.7", "len": 57, "c36_stop": "5000 (*3)", "c36_pass": "5500", "c30_stop": "4000 (*3)", "c30_pass": "4000", "tem_stop": "4000 (*3)", "tem_pass": "4000", "notes": ["(*3) - Остановка на SONDA нежелательна, так как влечёт большой дополнительный расход топлива."]}, {"dir": "NARVA – TAPA", "lisa": "Lisa 9", "from": "KABALA", "from_km": "226.2", "to": "VAEKÜLA", "to_km": "217.7", "dist": "8.5", "len": 57, "c36_stop": "6000 (*4)/4500", "c36_pass": "6000 (*4)/4500", "c30_stop": "4000 (*4)/2800", "c30_pass": "4000 (*4)/2800", "tem_stop": "4000 (*4)/2800", "tem_pass": "4000 (*4)/2800", "notes": ["(*4) - с км 225 п. 8 до км 221 п. 6 ограничение скорости не менее 40 км/ч."]}, {"dir": "NARVA – TAPA", "lisa": "Lisa 9", "from": "VAEKÜLA", "from_km": "217.7", "to": "RAKVERE", "to_km": "208.3", "dist": "9.4", "len": 57, "c36_stop": "6000 (*5)/4500", "c36_pass": "6000 (*5)/4500", "c30_stop": "4000 (*5)/2800", "c30_pass": "4000 (*5)/2800", "tem_stop": "4000 (*5)/2800", "tem_pass": "4000 (*5)/2800", "notes": ["(*5) - От VAEKÜLA до км 212 п. 6 ограничение скорости не менее 40 км/ч."]}, {"dir": "NARVA – TAPA", "lisa": "Lisa 9", "from": "RAKVERE", "from_km": "208.3", "to": "KADRINA", "to_km": "195.7", "dist": "12.6", "len": 57, "c36_stop": "5500 (*6)/4500", "c36_pass": "6000 (*6)/4500", "c30_stop": "4000 (*6)/2800", "c30_pass": "4000 (*6)/2800", "tem_stop": "4000 (*6)/2800", "tem_pass": "4000 (*6)/2800", "notes": ["(*6) - От RAKVERE до км 206 п. 5 и с км 201 п. 2 до км 197 п. 5 ограничение скорости не менее 40 км/ч."]}, {"dir": "NARVA – TAPA", "lisa": "Lisa 9", "from": "KADRINA", "from_km": "195.7", "to": "TAPA", "to_km": "182.0", "dist": "13.7", "len": 57, "c36_stop": "5500 (*7)/4500", "c36_pass": "5500 (*7)/4500", "c30_stop": "3200 (*7)/2800", "c30_pass": "4000 (*7)/2800", "tem_stop": "2800", "tem_pass": "4000 (*7)/2800", "notes": ["(*7) - От KADRINA до км 189 п. 5 ограничение скорости не менее 60 км/ч, до км 186 п. 8 не менее 40 км/ч."]}, {"dir": "RIISIPERE – TALLINN", "lisa": "Lisa 10", "from": "RIISIPERE", "from_km": "53.1", "to": "VASALEMMA", "to_km": "66.9", "dist": "13.8", "len": 45, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "RIISIPERE – TALLINN", "lisa": "Lisa 10", "from": "VASALEMMA", "from_km": "66.9", "to": "KEILA", "to_km": "77.5", "dist": "10.6", "len": 45, "c36_stop": "6000 (*1)/5000", "c36_pass": "6000 (*1)/5000", "c30_stop": "4000 (*1)/2800", "c30_pass": "4000 (*1)/2800", "tem_stop": "4000 (*1)/2800", "tem_pass": "4000 (*1)/2800", "notes": ["(*1) - Приём на KEILA на II путь, с км 73 п. 5 до KEILA ограничение скорости не менее 40 км/ч."]}, {"dir": "RIISIPERE – TALLINN", "lisa": "Lisa 10", "from": "KEILA", "from_km": "77.5", "to": "PÄÄSKÜLA", "to_km": "93.3", "dist": "15.8", "len": 45, "c36_stop": "4000", "c36_pass": "4000", "c30_stop": "2800", "c30_pass": "2800", "tem_stop": "2500", "tem_pass": "2500", "notes": []}, {"dir": "RIISIPERE – TALLINN", "lisa": "Lisa 10", "from": "PÄÄSKÜLA", "from_km": "93.3", "to": "TALLINN", "to_km": "104.4", "dist": "11.1", "len": 45, "c36_stop": "3500", "c36_pass": "4000", "c30_stop": "2800", "c30_pass": "2800", "tem_stop": "2500", "tem_pass": "2500", "notes": []}, {"dir": "TALLINN – RIISIPERE", "lisa": "Lisa 11", "from": "TALLINN", "from_km": "104.4", "to": "PÄÄSKÜLA", "to_km": "93.3", "dist": "11.1", "len": 45, "c36_stop": "3800", "c36_pass": "—", "c30_stop": "2800", "c30_pass": "—", "tem_stop": "2500", "tem_pass": "—", "notes": []}, {"dir": "TALLINN – RIISIPERE", "lisa": "Lisa 11", "from": "PÄÄSKÜLA", "from_km": "93.3", "to": "KEILA", "to_km": "77.5", "dist": "15.8", "len": 45, "c36_stop": "6000 (*1)/5000", "c36_pass": "6000 (*1)/5000", "c30_stop": "2800", "c30_pass": "2800", "tem_stop": "2500", "tem_pass": "2500", "notes": ["(*1) - с км 90 п. 5 до км 93 п. 7 ограничение скорости не менее 40 км/ч.", "(*2) - с км 82 п. 8 до км 86 п. 3 ограничение скорости не менее 40 км/ч.", "(*3) - с км 81 п. 4 до км 78 п. 5 ограничение скорости не менее 40 км/ч."]}, {"dir": "TALLINN – RIISIPERE", "lisa": "Lisa 11", "from": "KEILA", "from_km": "77.5", "to": "VASALEMMA", "to_km": "66.9", "dist": "10.6", "len": 45, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "2800", "c30_pass": "2800", "tem_stop": "2500", "tem_pass": "2500", "notes": []}, {"dir": "TALLINN – RIISIPERE", "lisa": "Lisa 11", "from": "VASALEMMA", "from_km": "66.9", "to": "RIISIPERE", "to_km": "53.1", "dist": "13.8", "len": 45, "c36_stop": "5500", "c36_pass": "5500", "c30_stop": "2800", "c30_pass": "2800", "tem_stop": "2500", "tem_pass": "2500", "notes": []}, {"dir": "KEILA – PALDISKI", "lisa": "Lisa 12", "from": "KEILA", "from_km": "0.0", "to": "KLOOGA", "to_km": "9.0", "dist": "9", "len": 45, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000", "c30_pass": "4000", "tem_stop": "4000", "tem_pass": "4000", "notes": []}, {"dir": "KEILA – PALDISKI", "lisa": "Lisa 12", "from": "KLOOGA", "from_km": "9.0", "to": "PALDISKI", "to_km": "20.8", "dist": "11.8", "len": 45, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "4000 (*1)/3200", "c30_pass": "4000 (*1)/3200", "tem_stop": "4000 (*1)/2800", "tem_pass": "4000 (*1)/2800", "notes": ["(*1) - От KLOOGA до км 14 п. 8 ограничение скорости не менее 40 км/ч."]}, {"dir": "PALDISKI – KEILA", "lisa": "Lisa 12", "from": "PALDISKI", "from_km": "20.8", "to": "KLOOGA", "to_km": "9.0", "dist": "11.8", "len": 45, "c36_stop": "4000", "c36_pass": "4000", "c30_stop": "2800", "c30_pass": "2800", "tem_stop": "2500", "tem_pass": "2500", "notes": []}, {"dir": "PALDISKI – KEILA", "lisa": "Lisa 12", "from": "KLOOGA", "from_km": "9.0", "to": "KEILA", "to_km": "0.0", "dist": "9", "len": 45, "c36_stop": "4000", "c36_pass": "4000", "c30_stop": "2800", "c30_pass": "2800", "tem_stop": "2500", "tem_pass": "2500", "notes": []}, {"dir": "TARTU – KOIDULA", "lisa": "Lisa 13", "from": "TARTU", "from_km": "0.0", "to": "REOLA", "to_km": "13.4", "dist": "13.4", "len": 57, "c36_stop": "5000 (*1)/4200", "c36_pass": "5000 (*1)/4200", "c30_stop": "2800", "c30_pass": "2800", "tem_stop": "2800", "tem_pass": "2800", "notes": ["(*1) - с км 8 п. 8 до км 14 п. 8 ограничение скорости не менее 40 км/ч."]}, {"dir": "TARTU – KOIDULA", "lisa": "Lisa 13", "from": "REOLA", "from_km": "13.4", "to": "VASTSE-KUUSTE", "to_km": "28.0", "dist": "14.6", "len": 57, "c36_stop": "3800", "c36_pass": "4200", "c30_stop": "2500", "c30_pass": "2800", "tem_stop": "2500", "tem_pass": "2500", "notes": []}, {"dir": "TARTU – KOIDULA", "lisa": "Lisa 13", "from": "VASTSE-KUUSTE", "from_km": "28.0", "to": "PÕLVA", "to_km": "43.0", "dist": "15.0", "len": 57, "c36_stop": "5000 (*2)/4200", "c36_pass": "5000 (*2)/4200", "c30_stop": "2800", "c30_pass": "2800", "tem_stop": "2800", "tem_pass": "2800", "notes": ["(*2) - с км 31 п. 2 до км 44 п. 4 ограничение скорости не менее 40 км/ч."]}, {"dir": "TARTU – KOIDULA", "lisa": "Lisa 13", "from": "PÕLVA", "from_km": "43.0", "to": "VERIORA", "to_km": "60.7", "dist": "17.7", "len": 57, "c36_stop": "5000", "c36_pass": "5000", "c30_stop": "2800", "c30_pass": "2800", "tem_stop": "2800", "tem_pass": "2800", "notes": []}, {"dir": "TARTU – KOIDULA", "lisa": "Lisa 13", "from": "VERIORA", "from_km": "60.7", "to": "ORAVA", "to_km": "72.5", "dist": "11.8", "len": 57, "c36_stop": "5000", "c36_pass": "5000", "c30_stop": "2800", "c30_pass": "2800", "tem_stop": "2800", "tem_pass": "2800", "notes": []}, {"dir": "TARTU – KOIDULA", "lisa": "Lisa 13", "from": "ORAVA", "from_km": "72.5", "to": "KOIDULA", "to_km": "85.8", "dist": "13.3", "len": 57, "c36_stop": "3800", "c36_pass": "4200", "c30_stop": "2800", "c30_pass": "2800", "tem_stop": "2500", "tem_pass": "2800", "notes": []}, {"dir": "KOIDULA – TARTU", "lisa": "Lisa 14", "from": "KOIDULA", "from_km": "85.8", "to": "ORAVA", "to_km": "72.5", "dist": "13.3", "len": 57, "c36_stop": "3800", "c36_pass": "3800", "c30_stop": "2650", "c30_pass": "2650", "tem_stop": "2200", "tem_pass": "2200", "notes": []}, {"dir": "KOIDULA – TARTU", "lisa": "Lisa 14", "from": "ORAVA", "from_km": "72.5", "to": "VERIORA", "to_km": "60.7", "dist": "11.8", "len": 57, "c36_stop": "6000 (*1)/5200", "c36_pass": "6000 (*1)/5200", "c30_stop": "4000 (*1)/2800", "c30_pass": "4000 (*1)/2800", "tem_stop": "4000 (*1)/2800", "tem_pass": "4000 (*1)/2800", "notes": ["(*1) - с км 66 п. 1 до км 61 п. 5 ограничение скорости не менее 40 км/ч, приём на VERIORA на главный путь."]}, {"dir": "KOIDULA – TARTU", "lisa": "Lisa 14", "from": "VERIORA", "from_km": "60.7", "to": "PÕLVA", "to_km": "43.0", "dist": "17.7", "len": 57, "c36_stop": "6000 (*2)/4700", "c36_pass": "6000 (*2)/4700", "c30_stop": "4000 (*2)/2800", "c30_pass": "4000 (*2)/2800", "tem_stop": "4000 (*2)/2800", "tem_pass": "4000 (*2)/2800", "notes": ["(*2) - с км 58 п. 8 до км 55 п. 2 ограничение скорости не менее 40 км/ч."]}, {"dir": "KOIDULA – TARTU", "lisa": "Lisa 14", "from": "PÕLVA", "from_km": "43.0", "to": "VASTSE-KUUSTE", "to_km": "28.0", "dist": "15.0", "len": 57, "c36_stop": "5500 (*3)/4200", "c36_pass": "5500 (*3)/4200", "c30_stop": "3500 (*3)/2800", "c30_pass": "4000 (*3)/2800", "tem_stop": "3500 (*3)/2800", "tem_pass": "3500 (*3)/2800", "notes": ["(*3) - Проследование или остановка на PÕLVA по главному пути, с км 44 п. 1 до км 38 п. 2 ограничение скорости не менее 60 км/ч."]}, {"dir": "KOIDULA – TARTU", "lisa": "Lisa 14", "from": "VASTSE-KUUSTE", "from_km": "28.0", "to": "REOLA", "to_km": "13.4", "dist": "14.6", "len": 57, "c36_stop": "5200 (*4)/4700", "c36_pass": "6000 (*4)/4700", "c30_stop": "3500 (*4)/2800", "c30_pass": "4000 (*4)/2800", "tem_stop": "3500 (*4)/2800", "tem_pass": "4000 (*4)/2800", "notes": ["(*4) - Проследование или остановка на VASTSE-KUUSTE по главному пути, с км 30 п. 5 до км 20 п. 5 ограничение скорости не менее 50 км/ч."]}, {"dir": "KOIDULA – TARTU", "lisa": "Lisa 14", "from": "REOLA", "from_km": "13.4", "to": "TARTU", "to_km": "0", "dist": "13.4", "len": 57, "c36_stop": "5200 (*5)/4200", "c36_pass": "6000 (*5)/4200", "c30_stop": "3500 (*5)/2800", "c30_pass": "4000 (*5)/2800", "tem_stop": "3500 (*5)/2800", "tem_pass": "4000 (*5)/2800", "notes": ["(*5) - Проследование или остановка на REOLA по главному пути, с км 14 п. 8 до км 6 п. 6 ограничение скорости не менее 60 км/ч.", "(*6) - с км 13 п. 6 до км 6 п. 6 ограничение скорости не менее 40 км/ч."]}, {"dir": "VALGA – KOIDULA", "lisa": "Lisa 15", "from": "VALGA", "from_km": "510.4", "to": "KARULA", "to_km": "526", "dist": "15.6", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "3500", "c30_pass": "3500", "tem_stop": "3000", "tem_pass": "3000", "notes": []}, {"dir": "VALGA – KOIDULA", "lisa": "Lisa 15", "from": "KARULA", "from_km": "526", "to": "ANTSLA", "to_km": "539.8", "dist": "13.8", "len": 57, "c36_stop": "5000", "c36_pass": "5500 (*1)/5000", "c30_stop": "3200", "c30_pass": "3500", "tem_stop": "2800", "tem_pass": "3000", "notes": ["(*1) - с км 524 п. 5 до км 531 п. 5 ограничение скорости не менее 40 км/ч."]}, {"dir": "VALGA – KOIDULA", "lisa": "Lisa 15", "from": "ANTSLA", "from_km": "539.8", "to": "SÕMERPALU", "to_km": "556.2", "dist": "16.4", "len": 57, "c36_stop": "4500", "c36_pass": "5000 (*2)/4500", "c30_stop": "2800", "c30_pass": "3500", "tem_stop": "2500", "tem_pass": "3000", "notes": ["(*2) - с км 536 п. 5 до км 548 п. 8 ограничение скорости не менее 40 км/ч."]}, {"dir": "VALGA – KOIDULA", "lisa": "Lisa 15", "from": "SÕMERPALU", "from_km": "556.2", "to": "VÕRU", "to_km": "569.5", "dist": "13.3", "len": 57, "c36_stop": "6000 (*3)/5000", "c36_pass": "6000 (*3)/5000", "c30_stop": "3500", "c30_pass": "3500", "tem_stop": "3000", "tem_pass": "3000", "notes": ["(*3) - с км 567 п. 2 до км 570 п. 4 ограничение скорости не менее 40 км/ч."]}, {"dir": "VALGA – KOIDULA", "lisa": "Lisa 15", "from": "VÕRU", "from_km": "569.5", "to": "LEPASSAARE", "to_km": "587.5", "dist": "18.0", "len": 57, "c36_stop": "5000 (*4)/4500", "c36_pass": "5000 (*4)/4500", "c30_stop": "3500", "c30_pass": "3500", "tem_stop": "3500", "tem_pass": "3500", "notes": ["(*4) - с км 574 п. 5 до км 582 п. 8 ограничение скорости не менее 40 км/ч."]}, {"dir": "VALGA – KOIDULA", "lisa": "Lisa 15", "from": "LEPASSAARE", "from_km": "587.5", "to": "PIUSA", "to_km": "596.7", "dist": "9.2", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "3500", "c30_pass": "3500", "tem_stop": "3500", "tem_pass": "3500", "notes": []}, {"dir": "VALGA – KOIDULA", "lisa": "Lisa 15", "from": "PIUSA", "from_km": "596.7", "to": "KOIDULA", "to_km": "603.2", "dist": "6.5", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "3500", "c30_pass": "3500", "tem_stop": "3500", "tem_pass": "3500", "notes": []}, {"dir": "KOIDULA – VALGA", "lisa": "Lisa 16", "from": "KOIDULA", "from_km": "603.2", "to": "PIUSA", "to_km": "596.7", "dist": "6.5", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "2800", "c30_pass": "2800", "tem_stop": "2800", "tem_pass": "2800", "notes": []}, {"dir": "KOIDULA – VALGA", "lisa": "Lisa 16", "from": "PIUSA", "from_km": "596.7", "to": "LEPASSAARE", "to_km": "587.5", "dist": "9.2", "len": 57, "c36_stop": "3800", "c36_pass": "3800", "c30_stop": "2800", "c30_pass": "2800", "tem_stop": "2500", "tem_pass": "2500", "notes": []}, {"dir": "KOIDULA – VALGA", "lisa": "Lisa 16", "from": "LEPASSAARE", "from_km": "587.5", "to": "VÕRU", "to_km": "569.5", "dist": "18.0", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "2800", "c30_pass": "2800", "tem_stop": "2800", "tem_pass": "2800", "notes": []}, {"dir": "KOIDULA – VALGA", "lisa": "Lisa 16", "from": "VÕRU", "from_km": "569.5", "to": "SÕMERPALU", "to_km": "556.2", "dist": "13.3", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "3500", "c30_pass": "3500", "tem_stop": "3500", "tem_pass": "3500", "notes": []}, {"dir": "KOIDULA – VALGA", "lisa": "Lisa 16", "from": "SÕMERPALU", "from_km": "556.2", "to": "ANTSLA", "to_km": "539.8", "dist": "16.4", "len": 57, "c36_stop": "4500", "c36_pass": "5000 (*1)/4500", "c30_stop": "2800", "c30_pass": "3200", "tem_stop": "2500", "tem_pass": "2800", "notes": ["(*1) - с км 560 до км 551 п. 1 ограничение скорости не менее 60 км/ч, далее до км 548 п. 7 не менее 40 км/ч."]}, {"dir": "KOIDULA – VALGA", "lisa": "Lisa 16", "from": "ANTSLA", "from_km": "539.8", "to": "KARULA", "to_km": "526.0", "dist": "13.8", "len": 57, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "3500", "c30_pass": "3500", "tem_stop": "3500", "tem_pass": "3500", "notes": []}, {"dir": "KOIDULA – VALGA", "lisa": "Lisa 16", "from": "KARULA", "from_km": "526.0", "to": "VALGA", "to_km": "510.4", "dist": "15.6", "len": 57, "c36_stop": "5000", "c36_pass": "6000 (*2)/5000", "c30_stop": "3500", "c30_pass": "3500", "tem_stop": "3500", "tem_pass": "3500", "notes": ["(*2) - с км 528 п. 3 до км 518 п. 3 ограничение скорости не менее 40 км/ч."]}, {"dir": "KOIDULA – PETSERI", "lisa": "Lisa 17", "from": "KOIDULA", "from_km": "603.2", "to": "PETSERI", "to_km": "46.3", "dist": "3.5", "len": 71, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "—", "c30_pass": "—", "tem_stop": "5500", "tem_pass": "5500", "notes": []}, {"dir": "PETSERI – KOIDULA", "lisa": "Lisa 17", "from": "PETSERI", "from_km": "606.7", "to": "KOIDULA", "to_km": "603.2", "dist": "3.5", "len": 71, "c36_stop": "6000", "c36_pass": "6000", "c30_stop": "—", "c30_pass": "—", "tem_stop": "5300 (*1)", "tem_pass": "5300 (*1)", "notes": ["(*1) - нет ограничения скорости ниже 25 км/ч между станциями KOIDULA и PETSERI."]}];
+
+let weightLoco = localStorage.getItem("evr_w_loco") || "ALL";
+let weightSelected = localStorage.getItem("evr_w_sel") || "TALLINN – TAPA";
+let weightRecent = JSON.parse(localStorage.getItem("evr_w_recent") || '["TALLINN – TAPA","TAPA – TALLINN","TAPA – TARTU","TARTU – TAPA","TAPA – NARVA","NARVA – TAPA","TAMSALU","MUUGA – LAGEDI"]');
+
+// Build lookup options: full directions (Lisa) + individual stations + individual segments
+const weightOptions = [];
+const seenWeightKeys = new Set();
+
+WEIGHT_DB.forEach(r => {
+  const dirKey = "DIR|" + r.dir;
+  if (!seenWeightKeys.has(dirKey)) {
+    seenWeightKeys.add(dirKey);
+    weightOptions.push({ key: r.dir, label: r.dir, kind: r.lisa, type: "dir" });
+  }
+});
+
+WEIGHT_DB.forEach(r => {
+  const segName = `${r.from} – ${r.to}`;
+  const segKey = "SEG|" + segName;
+  if (!seenWeightKeys.has(segKey)) {
+    seenWeightKeys.add(segKey);
+    weightOptions.push({ key: segName, label: segName, kind: "Перегон", type: "seg" });
+  }
+});
+
+WEIGHT_DB.forEach(r => {
+  [r.from, r.to].forEach(st => {
+    const stKey = "ST|" + st;
+    if (!seenWeightKeys.has(stKey)) {
+      seenWeightKeys.add(stKey);
+      weightOptions.push({ key: st, label: st, kind: "Станция", type: "st" });
+    }
+  });
+});
+
+function setWeightLoco(loco, el) {
+  weightLoco = loco;
+  localStorage.setItem("evr_w_loco", loco);
+  document.querySelectorAll("#wLocoChips .w-chip").forEach(b => b.classList.remove("active"));
+  if (el) el.classList.add("active");
+  renderWeightView();
+}
+
+function renderWeightRecent() {
+  const box = document.getElementById("wRecentChips");
+  if (!box) return;
+  box.innerHTML = "";
+  weightRecent.slice(0, 8).forEach(name => {
+    const btn = document.createElement("button");
+    btn.className = "chip" + (weightSelected === name ? " active" : "");
+    btn.textContent = name;
+    btn.onclick = () => selectWeightTarget(name);
+    box.appendChild(btn);
+  });
+}
+
+function selectWeightTarget(name) {
+  weightSelected = name;
+  localStorage.setItem("evr_w_sel", name);
+  const inp = document.getElementById("wSearchInput");
+  if (inp) inp.value = name;
+  document.getElementById("wClearBtn").style.display = name ? "block" : "none";
+  document.getElementById("wDropdown").style.display = "none";
+
+  weightRecent = [name, ...weightRecent.filter(x => x !== name)].slice(0, 10);
+  localStorage.setItem("evr_w_recent", JSON.stringify(weightRecent));
+  renderWeightRecent();
+  renderWeightView();
+}
+
+function clearWeightSearch() {
+  const inp = document.getElementById("wSearchInput");
+  inp.value = "";
+  document.getElementById("wClearBtn").style.display = "none";
+  document.getElementById("wDropdown").style.display = "none";
+  weightSelected = "";
+  renderWeightRecent();
+  renderWeightView();
+  inp.focus();
+}
+
+function onWeightInput() {
+  const inp = document.getElementById("wSearchInput");
+  const dd = document.getElementById("wDropdown");
+  const q = inp.value.trim();
+  const qLow = q.toLowerCase();
+  document.getElementById("wClearBtn").style.display = q ? "block" : "none";
+
+  weightSelected = q;
+  renderWeightView();
+
+  if (!qLow) {
+    dd.style.display = "none";
+    return;
+  }
+
+  const matches = weightOptions
+    .filter(o => o.label.toLowerCase().includes(qLow) || o.kind.toLowerCase().includes(qLow))
+    .sort((a, b) => {
+      const aS = a.label.toLowerCase().startsWith(qLow) ? 0 : 1;
+      const bS = b.label.toLowerCase().startsWith(qLow) ? 0 : 1;
+      if (aS !== bS) return aS - bS;
+      const ord = { dir: 0, st: 1, seg: 2 };
+      if (ord[a.type] !== ord[b.type]) return ord[a.type] - ord[b.type];
+      return a.label.localeCompare(b.label);
+    })
+    .slice(0, 25);
+
+  if (!matches.length) {
+    dd.innerHTML = `<div class="drop-item"><span class="drop-name" style="color:var(--muted)">Ничего не найдено</span></div>`;
+  } else {
+    dd.innerHTML = matches.map(m => `
+      <div class="drop-item" onclick="selectWeightTarget('${m.key.replace(/'/g, "\'")}')">
+        <span class="drop-name">${m.label}</span>
+        <div class="drop-tags">
+          <span class="drop-tag">${m.kind}</span>
+        </div>
+      </div>
+    `).join("");
+  }
+  dd.style.display = "block";
+}
+
+document.addEventListener("click", (e) => {
+  if (!e.target.closest("#weightView .search-wrap")) {
+    const dd = document.getElementById("wDropdown");
+    if (dd) dd.style.display = "none";
+  }
+});
+
+function formatWeightVal(v) {
+  if (!v || v === "—") return "—";
+  return v.includes("(*") ? v : `${v} т`;
+}
+
+function renderWeightView() {
+  const area = document.getElementById("wContentArea");
+  if (!area) return;
+  const qLow = (weightSelected || "").trim().toLowerCase();
+
+  let rows = WEIGHT_DB;
+  if (qLow) {
+    // Exact match on direction, station, or segment first; otherwise substring match
+    const exactDir = WEIGHT_DB.filter(r => r.dir.toLowerCase() === qLow);
+    const exactSeg = WEIGHT_DB.filter(r => `${r.from} – ${r.to}`.toLowerCase() === qLow || `${r.from} - ${r.to}`.toLowerCase() === qLow);
+    const exactSt = WEIGHT_DB.filter(r => r.from.toLowerCase() === qLow || r.to.toLowerCase() === qLow);
+    if (exactDir.length) rows = exactDir;
+    else if (exactSeg.length) rows = exactSeg;
+    else if (exactSt.length) rows = exactSt;
+    else {
+      rows = WEIGHT_DB.filter(r => {
+        const blob = `${r.dir} ${r.lisa} ${r.from} ${r.to} ${r.from_km} ${r.to_km} ${r.notes.join(" ")}`.toLowerCase();
+        return blob.includes(qLow);
+      });
+    }
+  }
+
+  if (!rows.length) {
+    area.innerHTML = `<div class="empty-state">По запросу «${weightSelected}» участков не найдено.</div>`;
+    return;
+  }
+
+  let html = "";
+  if (qLow) {
+    html += `<div class="loc-header"><div class="loc-title-row"><div class="loc-title">${weightSelected}</div><span class="infra-pill evr">${rows.length} перег.</span></div></div>`;
+  } else {
+    html += `<div style="font-size:12px;color:var(--muted);margin-bottom:10px;">Показаны все перегоны (${rows.length}). Выберите направление или станцию выше.</div>`;
+  }
+
+  rows.forEach(r => {
+    const showC36 = weightLoco === "ALL" || weightLoco === "C36";
+    const showC30 = weightLoco === "ALL" || weightLoco === "C30";
+    const showTEM = weightLoco === "ALL" || weightLoco === "TEM";
+    const colsCount = [showC36, showC30, showTEM].filter(Boolean).length;
+    const gridStyle = colsCount === 1 ? 'style="grid-template-columns:1fr;"' : "";
+
+    html += `
+      <div class="w-card">
+        <div class="w-card-top">
+          <div>
+            <div class="w-seg-name">${r.from} → ${r.to}</div>
+            <div class="w-seg-sub">${r.from_km} – ${r.to_km} км • расстояние ${r.dist} км</div>
+            <div class="w-dir-pill">${r.lisa}: ${r.dir}</div>
+          </div>
+          <div class="w-len-badge">Усл. длина<br><span style="font-size:16px;color:#fff;">${r.len}</span></div>
+        </div>
+
+        <div class="w-grid" ${gridStyle}>
+          ${showTEM ? `
+          <div class="w-loco-box ${weightLoco === 'TEM' ? 'focus' : ''}">
+            <div class="w-loco-name">TEM TMH</div>
+            <div class="w-pair">
+              <div class="w-cell"><div class="w-cell-lbl">Остановка</div><div class="w-cell-val">${formatWeightVal(r.tem_stop)}</div></div>
+              <div class="w-cell"><div class="w-cell-lbl">Проход</div><div class="w-cell-val">${formatWeightVal(r.tem_pass)}</div></div>
+            </div>
+          </div>` : ""}
+
+          ${showC30 ? `
+          <div class="w-loco-box ${weightLoco === 'C30' ? 'focus' : ''}">
+            <div class="w-loco-name">DF7G-E, C30-M</div>
+            <div class="w-pair">
+              <div class="w-cell"><div class="w-cell-lbl">Остановка</div><div class="w-cell-val">${formatWeightVal(r.c30_stop)}</div></div>
+              <div class="w-cell"><div class="w-cell-lbl">Проход</div><div class="w-cell-val">${formatWeightVal(r.c30_pass)}</div></div>
+            </div>
+          </div>` : ""}
+
+          ${showC36 ? `
+          <div class="w-loco-box ${weightLoco === 'C36' ? 'focus' : ''}">
+            <div class="w-loco-name">C36-7i</div>
+            <div class="w-pair">
+              <div class="w-cell"><div class="w-cell-lbl">Остановка</div><div class="w-cell-val">${formatWeightVal(r.c36_stop)}</div></div>
+              <div class="w-cell"><div class="w-cell-lbl">Проход</div><div class="w-cell-val">${formatWeightVal(r.c36_pass)}</div></div>
+            </div>
+          </div>` : ""}
+        </div>
+
+        ${r.notes && r.notes.length ? `<div class="w-note">${r.notes.join("<br>")}</div>` : ""}
+      </div>
+    `;
+  });
+
+  html += `
+    <div class="w-rules-box">
+      <b>Общие указания для всех участков:</b><br>
+      • <b>C36-7i (один локомотив):</b> при остановке на подъёме круче <b>0.007</b> и массе поезда более <b>3000 т</b> трогание с места запрещено — затребовать вспомогательный локомотив (если осаживание на более пологий участок не разрешено).<br>
+      • <b>DF7G-E / C30-M (один локомотив):</b> при остановке на подъёме круче <b>0.007</b> и массе поезда более <b>2500 т</b> трогание с места запрещено — затребовать вспомогательный локомотив.<br>
+      • <b>TEM TMH (один локомотив):</b> при остановке на подъёме круче <b>0.007</b> и массе поезда более <b>2200 т</b> трогание с места запрещено — затребовать вспомогательный локомотив.<br>
+      • <b>Кратная тяга:</b> при ведении поезда несколькими локомотивами максимальная масса определяется суммированием весовых норм локомотивов. При тяге двумя и более локомотивами <b>C36-7i</b> масса поезда не должна превышать <b>8000 т</b>.
+    </div>
+  `;
+
+  area.innerHTML = html;
+}
 
 </script>
 
